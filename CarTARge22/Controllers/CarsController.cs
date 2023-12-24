@@ -36,6 +36,8 @@ namespace CarTARge22.Controllers
             return View(result);
         }
 
+
+
         [HttpGet]
         public IActionResult Create()
         {
@@ -126,7 +128,7 @@ namespace CarTARge22.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult>Update(CarsCreateUdateVIewModel vm)
+        public async Task<IActionResult> Update(CarsCreateUdateVIewModel vm)
         {
             var dto = new CarDto()
             {
@@ -151,5 +153,43 @@ namespace CarTARge22.Controllers
 
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var car = await _carsServices.DetailsAsync(id);
+
+            if (car == null)
+            {
+                return NotFound();
+            }
+
+            var vm = new CarsDeleteViewModel();
+
+            vm.Id = car.Id;
+            vm.Name = car.Name;
+            vm.Brand = car.Brand;
+            vm.Year = car.Year;
+            vm.Transmission = car.Transmission;
+            vm.Color = car.Color;
+            vm.Fuel = car.Fuel;
+            vm.TopSpeed = car.TopSpeed;
+            vm.CreatedAt = car.CreatedAt;
+            vm.ModifiedAt = car.ModifiedAt;
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteConfirmation(Guid id)
+        {
+            var carId = await _carsServices.Delete(id);
+
+            if (carId == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
