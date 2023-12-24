@@ -1,3 +1,5 @@
+using CarTARge22.ApplicationServices.Services;
+using CarTARge22.Core.ServiceInterface;
 using CarTARge22.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +10,8 @@ builder.Services.AddDbContext<CarTARge22Context>(options =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<ICarsServices, CarsServices>();
 
 var app = builder.Build();
 

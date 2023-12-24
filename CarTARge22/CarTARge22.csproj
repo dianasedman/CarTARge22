@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CarTARge22.ApplicationServices\CarTARge22.ApplicationServices.csproj" />
     <ProjectReference Include="..\CarTARge22.Data\CarTARge22.Data.csproj" />
   </ItemGroup>
 

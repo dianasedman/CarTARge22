@@ -5,8 +5,8 @@
     }
 
 <body style="background-image: url(https://images.pexels.com/photos/386025/pexels-photo-386025.jpeg); background-size:cover; opacity: 0.8;">
-    <div style="padding:50px;">
-    <form method="post" class="form">
+    <div style="padding: 20px">
+    <form method="post" class="form" style="padding: 50px;">
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -29,9 +29,9 @@
                             <td>@cars.Year</td>
                             <td>@cars.Transmission</td>
                             <td>
-                                <a asp-action="details" asp-controller="cars" asp-route-id="@cars.Id" class="btn btn-danger">Details</a>
-                                <a asp-action="update" asp-controller="cars" asp-route-id="@cars.Id" class="button-51">Update</a>
-                                <a asp-action="delete" asp-controller="cars" asp-route-id="@cars.Id" class="button-51">Delete</a>
+                                <a asp-action="details" asp-controller="cars" asp-route-id="@cars.Id" class="btn btn-success">Details</a>
+                                <a asp-action="update" asp-controller="cars" asp-route-id="@cars.Id" class="btn btn-warning">Update</a>
+                                    <a asp-action="delete" asp-controller="cars" asp-route-id="@cars.Id" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                         rowNumber += 1;
@@ -45,8 +45,8 @@
         </table>
     </form>
     <div>
-        <a asp-action="create" asp-controller="cars" type="submit" class="btn" style="background-color:bisque; padding: 10px">Create</a>
+            <a asp-action="create" asp-controller="cars" type="submit" class="btn" style="background-color:#F5CB9F; padding: 10px 20px; font-weight: 800">CREATE</a>
 
     </div>
-    </div>
+
 </body>
