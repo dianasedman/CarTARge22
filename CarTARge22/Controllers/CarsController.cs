@@ -3,6 +3,7 @@ using CarTARge22.Core.ServiceInterface;
 using CarTARge22.Data;
 using CarTARge22.Models.Cars;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection.Metadata.Ecma335;
 
 namespace CarTARge22.Controllers
 {
@@ -50,7 +51,7 @@ namespace CarTARge22.Controllers
                 Name = vm.Name,
                 Brand = vm.Brand,
                 Year = vm.Year,
-                Transmission = vm.Transmission,
+                Transmission = (Core.Dto.TransmissionType)vm.Transmission,
                 Color = vm.Color,
                 Fuel = vm.Fuel,
                 TopSpeed = vm.TopSpeed,
@@ -65,5 +66,31 @@ namespace CarTARge22.Controllers
 
             return RedirectToAction(nameof(Index), vm);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(Guid id)
+        {
+            var car = await _carsServices.DetailsAsync(id);
+
+            if (car == null)
+            {
+                return NotFound();
+            }
+
+            var vm = new CarsDetailsViewModel();
+            vm.Id = id;
+            vm.Name = car.Name;
+            vm.Brand = car.Brand;
+            vm.Year = car.Year;
+            vm.Transmission = car.Transmission;
+            vm.Color = car.Color;
+            vm.Fuel = car.Fuel;
+            vm.TopSpeed = car.TopSpeed;
+            vm.CreatedAt = car.CreatedAt;
+            vm.ModifiedAt = car.ModifiedAt;
+
+            return View(vm);
+        }
+        
     }
 }

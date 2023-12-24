@@ -31,7 +31,7 @@ namespace CarTARge22.ApplicationServices.Services
             car.Name = dto.Name;
             car.Brand = dto.Brand;
             car.Year = dto.Year;
-            car.Transmission = dto.Transmission;
+            car.Transmission = dto.Transmission.ToString();
             car.Color = dto.Color;
             car.Fuel = dto.Fuel;
             car.TopSpeed = dto.TopSpeed;
@@ -53,7 +53,7 @@ namespace CarTARge22.ApplicationServices.Services
             domain.Name = dto.Name;
             domain.Brand = dto.Brand;
             domain.Year = dto.Year;
-            domain.Transmission = dto.Transmission;
+            domain.Transmission = dto.Transmission.ToString();
             domain.Color = dto.Color;
             domain.Fuel = dto.Fuel;
             domain.TopSpeed = dto.TopSpeed;

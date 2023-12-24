@@ -1,15 +1,16 @@
-﻿@model CarTARge22.Models.Cars.CarsCreateUdateVIewModel
+﻿@using CarTARge22.Models.Cars;
+@model CarTARge22.Models.Cars.CarsCreateUdateVIewModel
 
 @if(Model.Id.HasValue)
 {
     <header class="major">
-        <h2> UPDATE</h2>
+        <h2 style="padding: 20px;"> UPDATE</h2>
     </header>
 }
 else
 {
     <header class="major">
-        <h2> CREATE</h2>
+        <h2 style="padding: 20px;"> CREATE</h2>
     </header>
 }
 
@@ -46,8 +47,13 @@ else
             <div class="form-group row">
                 <label asp-for="Transmission" class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-5">
-                    <input asp-for="Transmission" class="form-control" />
-                </div>
+                        <select asp-for="Transmission" class="form-control">
+                            @foreach (var value in Enum.GetValues(typeof(TransmissionType)))
+                            {
+                                <option value="@value">@value</option>
+                            }
+                        </select>
+                    </div>
             </div>
 
             <div class="form-group row">
