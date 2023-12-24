@@ -4,6 +4,7 @@ using CarTARge22.Data;
 using CarTARge22.Models.Cars;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection.Metadata.Ecma335;
+using TransmissionType = CarTARge22.Core.Dto.TransmissionType;
 
 namespace CarTARge22.Controllers
 {
@@ -51,7 +52,7 @@ namespace CarTARge22.Controllers
                 Name = vm.Name,
                 Brand = vm.Brand,
                 Year = vm.Year,
-                Transmission = (Core.Dto.TransmissionType)vm.Transmission,
+                Transmission = (TransmissionType)vm.Transmission,
                 Color = vm.Color,
                 Fuel = vm.Fuel,
                 TopSpeed = vm.TopSpeed,
@@ -91,6 +92,64 @@ namespace CarTARge22.Controllers
 
             return View(vm);
         }
-        
+
+        [HttpGet]
+        public async Task<IActionResult> Update(Guid id)
+        {
+            var car = await _carsServices.DetailsAsync(id);
+
+            if (car == null)
+            {
+                return NotFound();
+            }
+
+            var vm = new CarsCreateUdateVIewModel();
+            vm.Id = id;
+            vm.Name = car.Name;
+            vm.Brand = car.Brand;
+            vm.Year = car.Year;
+            if (Enum.TryParse(typeof(TransmissionType), car.Transmission, out var transmission))
+            {
+                vm.Transmission = (Models.Cars.TransmissionType)(TransmissionType)transmission;
+            }
+            else
+            {
+                return NotFound();
+            }
+            vm.Color = car.Color;
+            vm.Fuel = car.Fuel;
+            vm.TopSpeed = car.TopSpeed;
+            vm.CreatedAt = car.CreatedAt;
+            vm.ModifiedAt = car.ModifiedAt;
+
+            return View("CreateUpdate", vm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult>Update(CarsCreateUdateVIewModel vm)
+        {
+            var dto = new CarDto()
+            {
+                Id = vm.Id,
+                Name = vm.Name,
+                Brand = vm.Brand,
+                Year = vm.Year,
+                Transmission = (TransmissionType)vm.Transmission,
+                Color = vm.Color,
+                Fuel = vm.Fuel,
+                TopSpeed = vm.TopSpeed,
+
+                CreatedAt = vm.CreatedAt,
+                ModifiedAt = vm.ModifiedAt,
+            };
+            var result = await _carsServices.Update(dto);
+            if (result == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return RedirectToAction(nameof(Index), vm);
+
+        }
+
     }
 }

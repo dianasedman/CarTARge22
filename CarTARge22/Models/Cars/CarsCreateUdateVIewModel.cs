@@ -18,6 +18,7 @@
     public enum TransmissionType
     {
         Manual,
-        Automatic
+        Automatic,
+        Default
     }
 }

@@ -47,9 +47,10 @@ namespace CarTARge22.ApplicationServices.Services
 
         public async Task<Car> Update(CarDto dto)
         {
+
             Car domain = new();
 
-            domain.Id = Guid.NewGuid();
+            domain.Id = dto.Id;
             domain.Name = dto.Name;
             domain.Brand = dto.Brand;
             domain.Year = dto.Year;

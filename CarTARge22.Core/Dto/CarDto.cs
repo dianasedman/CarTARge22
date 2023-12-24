@@ -24,6 +24,7 @@ namespace CarTARge22.Core.Dto
     public enum TransmissionType
     {
         Manual, 
-        Automatic
+        Automatic,
+        Default
     }
 }
