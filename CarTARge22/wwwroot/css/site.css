@@ -30,3 +30,23 @@
 body {
     background-color: #eee;
 }
+
+
+/*footer*/
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 30px;
+}
+
+
+.footer {
+    background-color: #AFB3BA;
+    position: fixed;
+}

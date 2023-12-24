@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CarTARge22.Core\CarTARge22.Core.csproj" />
+    <ProjectReference Include="..\CarTARge22.Data\CarTARge22.Data.csproj" />
+  </ItemGroup>
+
+</Project>

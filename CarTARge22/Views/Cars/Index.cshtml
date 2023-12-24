@@ -1,5 +1,52 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model IEnumerable<CarTARge22.Models.Cars.CarsIndexViewModel>
+
+    @{
+        int rowNumber = 1;
+    }
+
+<body style="background-image: url(https://images.pexels.com/photos/386025/pexels-photo-386025.jpeg); background-size:cover; opacity: 0.8;">
+    <div style="padding:50px;">
+    <form method="post" class="form">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Nr</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Transmission</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    foreach (var cars in Model)
+                    {
+                        <tr>
+                            <td>@rowNumber</td>
+                            <td>@cars.Name</td>
+                            <td>@cars.Brand</td>
+                            <td>@cars.Year</td>
+                            <td>@cars.Transmission</td>
+                            <td>
+                                <a asp-action="details" asp-controller="cars" asp-route-id="@cars.Id" class="btn btn-danger">Details</a>
+                                <a asp-action="update" asp-controller="cars" asp-route-id="@cars.Id" class="button-51">Update</a>
+                                <a asp-action="delete" asp-controller="cars" asp-route-id="@cars.Id" class="button-51">Delete</a>
+                            </td>
+                        </tr>
+                        rowNumber += 1;
+                    }
+                }
+                else
+                {
+                    <p>No data</p>
+                }
+            </tbody>
+        </table>
+    </form>
+    <div>
+        <a asp-action="create" asp-controller="cars" type="submit" class="btn" style="background-color:bisque; padding: 10px">Create</a>
+
+    </div>
+    </div>
+</body>
