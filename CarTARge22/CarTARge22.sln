@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarTARge22.Data", "..\CarTA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarTARge22.Core", "..\CarTARge22.Core\CarTARge22.Core.csproj", "{01150C1C-98A4-4A70-AD8B-6F9BBC195DA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarTARge22.ApplicationServices", "..\CarTARge22.ApplicationServices\CarTARge22.ApplicationServices.csproj", "{97C3D022-7E3C-4348-A308-047A3B527C41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarTARge22.ApplicationServices", "..\CarTARge22.ApplicationServices\CarTARge22.ApplicationServices.csproj", "{97C3D022-7E3C-4348-A308-047A3B527C41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarTARge22.CarTest", "..\CarTARge22.CarTest\CarTARge22.CarTest.csproj", "{DC376491-2C93-48B7-9348-E104F6AAA578}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{97C3D022-7E3C-4348-A308-047A3B527C41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97C3D022-7E3C-4348-A308-047A3B527C41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97C3D022-7E3C-4348-A308-047A3B527C41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC376491-2C93-48B7-9348-E104F6AAA578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC376491-2C93-48B7-9348-E104F6AAA578}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC376491-2C93-48B7-9348-E104F6AAA578}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC376491-2C93-48B7-9348-E104F6AAA578}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
